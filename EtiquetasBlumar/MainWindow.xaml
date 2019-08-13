@@ -1,0 +1,84 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EtiquetasBlumar"
+        xmlns:talex="http://schemas.talex-soft.com/2010/xaml/presentation" x:Class="EtiquetasBlumar.MainWindow"
+        mc:Ignorable="d"
+        Title="Etiquetas Blumar" Height="600" Width="850">
+    <Grid>
+        <Label Content="Etiqueta Blumar" HorizontalAlignment="Left" Margin="380,20,0,0" VerticalAlignment="Top" Height="53" Width="217" FontSize="20pt"/>
+        <Label Content="Material" HorizontalAlignment="Left" Margin="380,70,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <ComboBox x:Name="cbxMaterial" HorizontalAlignment="Left" Margin="520,75,0,0" VerticalAlignment="Top" Width="200" SelectedValuePath="Tag" SelectionChanged="CbxMaterial_SelectionChanged" LostFocus="CbxMaterial_LostFocus" >
+            <ComboBoxItem Content="Seleccione Material..." Tag="0" HorizontalAlignment="Left" Width="198"/>
+        </ComboBox>
+        <Label Content="Lote" HorizontalAlignment="Left" Margin="380,105,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <TextBox x:Name="txtLote" MaxLength="6" HorizontalAlignment="Left" Height="23" Margin="520,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" LostFocus="TxtLote_LostFocus" TextChanged="TxtLote_TextChanged"/>
+        <Label Content="Porción" HorizontalAlignment="Left" Margin="380,175,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <TextBox x:Name="txtPorcion" MaxLength="2" HorizontalAlignment="Left" Height="23" Margin="520,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" TextChanged="TxtPorcion_TextChanged"/>
+        <Label Content="Correlativo" HorizontalAlignment="Left" Margin="380,210,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <TextBox x:Name="txtCorrelativo" MaxLength="3" HorizontalAlignment="Left" Height="23" Margin="520,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" SelectionChanged="TxtCorrelativo_SelectionChanged"/>
+        <Label Content="Fecha" HorizontalAlignment="Left" Margin="380,140,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <DatePicker x:Name="fechaPicker" HorizontalAlignment="Left" Margin="520,145,0,0" VerticalAlignment="Top" Width="200" SelectedDateChanged="FechaPicker_SelectedDateChanged" />
+        <Label Content="Envase" HorizontalAlignment="Left" Margin="380,245,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <ComboBox x:Name="cbxEnvase" HorizontalAlignment="Left" Margin="520,255,0,0" VerticalAlignment="Top" Width="200" SelectedValuePath="Tag" SelectionChanged="CbxEnvase_SelectionChanged">
+            <ComboBoxItem Tag="7000003" Content="JUMBO_1250KG" HorizontalAlignment="Left" Width="198"/>
+            <ComboBoxItem Tag="7000004" Content="ESLINGA 40X25 KG" HorizontalAlignment="Left" Width="198"/>
+            <ComboBoxItem Tag="7000010" Content="JUMBO_650KG" HorizontalAlignment="Left" Width="198"/>
+            <ComboBoxItem Tag="7000006" Content="SACO 25KG" HorizontalAlignment="Left" Width="198"/>
+            <ComboBoxItem Tag="7000022" Content="Eslinga 50x25 Kg" HorizontalAlignment="Left" Width="198"/>
+        </ComboBox>
+        <Label Content="Origen" HorizontalAlignment="Left" Margin="380,280,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <ComboBox x:Name="cbxOrigenes" HorizontalAlignment="Left" Margin="520,290,0,0" VerticalAlignment="Top" Width="200" SelectedValuePath="Tag" SelectionChanged="CbxOrigenes_SelectionChanged">
+            <ComboBoxItem Tag="0" Content="Recursos" HorizontalAlignment="Left" Width="198"/>
+            <ComboBoxItem Tag="1" Content="Harina" HorizontalAlignment="Left" Width="198"/>
+        </ComboBox>
+        <Label Content="Tipo" HorizontalAlignment="Left" Margin="380,315,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <ComboBox x:Name="cbxTipos" HorizontalAlignment="Left" Margin="520,325,0,0" VerticalAlignment="Top" Width="200" SelectedValuePath="Tag" SelectionChanged="CbxTipos_SelectionChanged">
+            <ComboBoxItem Tag="4" Content="Producción" HorizontalAlignment="Left" Width="198"/>
+            <ComboBoxItem Tag="2" Content="Repaso" HorizontalAlignment="Left" Width="198"/>
+            <ComboBoxItem Tag="3" Content="Mezcla" HorizontalAlignment="Left" Width="198"/>
+            <ComboBoxItem Tag="1" Content="Rechazo" HorizontalAlignment="Left" Width="198"/>
+        </ComboBox>
+        <Label Content="Kilos" HorizontalAlignment="Left" Margin="380,350,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <talex:NumericUpDown x:Name="cantToneladas" HorizontalAlignment="Left" Margin="520,360,0,0" VerticalAlignment="Top" Height="23" Width="200" Maximum="999"/>
+        <Label Content="Centro" HorizontalAlignment="Left" Margin="380,380,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <ComboBox x:Name="comboCentro" IsHitTestVisible="False" Focusable="False" IsEditable="False" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="520,390,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="ComboCentro_SelectionChanged" />
+        <Label Content="N° Etiquetas" HorizontalAlignment="Left" Margin="380,410,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <talex:NumericUpDown x:Name="cantEtiquetas" HorizontalAlignment="Left" Margin="520,420,0,0" VerticalAlignment="Top" Height="23" Width="60" Maximum="999" ValueChanged="CantEtiquetas_ValueChanged"/>
+        <Label Content="Copias" HorizontalAlignment="Left" Margin="585,410,0,0" VerticalAlignment="Top" FontSize="15pt" />
+        <talex:NumericUpDown Value="1"  x:Name="copiasEtiquetas" HorizontalAlignment="Left" Margin="660,420,0,0" VerticalAlignment="Top" Height="23" Width="60" Maximum="999" />
+
+        <Button x:Name="btnImprimir" Content="Imprimir" HorizontalAlignment="Left" Margin="560,455,0,0" VerticalAlignment="Top" Width="160" Height="30" Click="BtnImprimir_Click"/>
+        <Image x:Name="imgLogo" HorizontalAlignment="Left" Height="170" Margin="62,37,0,0" VerticalAlignment="Top" Width="230" Stretch="Fill"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="153" Margin="67,314,0,0" VerticalAlignment="Top" Width="250"/>
+        <Label x:Name="lblLote" Content="000000" HorizontalAlignment="Left" Margin="65,315,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <Label Content="-" HorizontalAlignment="Left" Margin="135,315,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <Label x:Name="lblCorrelativo" Content="000" HorizontalAlignment="Left" Margin="145,315,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <Label Content="-" HorizontalAlignment="Left" Margin="180,315,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <Label x:Name="lblPorcion" Content="00" HorizontalAlignment="Left" Margin="195,315,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <Label Content="/" HorizontalAlignment="Left" Margin="225,315,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <Label x:Name="lblJuliano" Content="000" HorizontalAlignment="Left" Margin="235,315,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <Label Content="-" HorizontalAlignment="Left" Margin="275,315,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <Label x:Name="lblAño" Content="00" HorizontalAlignment="Left" Margin="285,315,0,0" VerticalAlignment="Top" FontSize="15pt"/>
+        <Image x:Name="imgQrCode" HorizontalAlignment="Left" Height="100" Margin="135,352,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button x:Name="btnAdmin" HorizontalAlignment="Left" Margin="380,447,0,0" Background="White" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" VerticalAlignment="Top" Width="50" Click="BtnAdmin_Click">
+            <StackPanel>
+                <Image Source="img/administrador.png" />
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnRefresh" HorizontalAlignment="Left" Margin="285,260,0,0" Background="White" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" VerticalAlignment="Top" Width="50" Click="BtnRefresh_Click">
+            <StackPanel>
+                <Image Source="img/refreshBlue.png" />
+            </StackPanel>
+        </Button>
+        <CheckBox x:Name="reimpresion" Content="Reimpresión de etiqueta" FontSize="13" HorizontalAlignment="Left" Margin="560,492,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblRechazo" Visibility="Hidden" Content="" HorizontalAlignment="Left" Margin="86,460,0,0" VerticalAlignment="Top" Height="49" Width="54"/>
+        <Label x:Name="testeo" Content="Version de Desarrollo" Visibility="Hidden" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.723,0.511"/>
+        <PasswordBox x:Name="adminPassword" MaxLength="8" Visibility="Visible" PasswordChar="*" Foreground="DarkBlue" HorizontalAlignment="Left" Margin="446,467,0,0" VerticalAlignment="Top" Width="99" PasswordChanged="AdminPassword_PasswordChanged"/>
+        <CheckBox x:Name="unlockCentroCkb" Visibility="Hidden" Content="Desbloquear" FontSize="13" HorizontalAlignment="Left" Margin="446,417,0,0" VerticalAlignment="Top" Checked="UnlockCentroCkb_Checked" Unchecked="UnlockCentroCkb_Unchecked"/>
+        <Button x:Name="btnTest" Visibility="Hidden" Content="Test" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="47" Click="BtnTest_Click" Height="25"/>
+
+    </Grid>
+</Window>
